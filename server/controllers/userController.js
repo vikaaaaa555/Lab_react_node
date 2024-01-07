@@ -42,15 +42,8 @@ class UserController {
     }
 
     async check(req, res, next) {
-
-    }
-
-    async edit(req, res) {
-
-    }
-
-    async delete(req, res) {
-
+        const token = generateJwt(req.user.id, req.user.email, req.user.role)
+        return res.json({token})
     }
 }
 

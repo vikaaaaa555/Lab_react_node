@@ -13,13 +13,5 @@ class WorkoutController {
         const workouts = await Workout.findAll()
         return res.json(workouts)
     }
-
-    async edit(req, res) {
-
-    }
-
-    async delete(req, res) {
-
-    }
 }
 module.exports = new WorkoutController()
