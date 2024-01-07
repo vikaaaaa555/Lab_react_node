@@ -1,10 +1,9 @@
 const Router = require('express')
 const router = new Router()
 const membershipController = require('../controllers/membershipController')
+const checkRole = require('../middleware/checkRoleMiddleware')
 
-router.post('/create_membership', membershipController.create)
+router.post('/create_membership', checkRole('ADMIN'), membershipController.create)
 router.get('/', membershipController.view)
-router.put('/edit_membership/:id', membershipController.edit)
-router.delete('/delete_membership/:id', membershipController.delete)
 
 module.exports = router;

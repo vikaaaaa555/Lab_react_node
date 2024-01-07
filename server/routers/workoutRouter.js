@@ -1,10 +1,9 @@
 const Router = require('express')
 const router = new Router()
 const workoutController = require('../controllers/workoutController')
+const checkRole = require('../middleware/checkRoleMiddleware')
 
-router.post('/create_workouts', workoutController.create)
+router.post('/create_workout', checkRole('ADMIN'), workoutController.create)
 router.get('/', workoutController.view)
-router.put('/edit_workout/:id', workoutController.edit)
-router.delete('/delete_workout/:id', workoutController.delete)
 
 module.exports = router
