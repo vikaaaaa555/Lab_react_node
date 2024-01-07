@@ -1,44 +1,39 @@
 import React, { useState } from 'react'
 import '../site.css'
-import CreateAnimal from '../components/modals/CreateInstructor'
-import EditAnimal from '../components/modals/EditInstructor'
-import DeleteAnimal from '../components/modals/DeleteInstructor'
+import CreateInstructor from '../components/modals/CreateInstructor'
+import EditInstructor from '../components/modals/EditInstructor'
+import DeleteInstructor from '../components/modals/DeleteInstructor'
 
 const Admin = () => {
-    const [showForm, setShowForm] = useState(null);
-
-    const handleCreateInstructorClick = () => {
-        setShowForm('add');
-    };
-    const handleEditInstructorClick = () => {
-        setShowForm('edit');
-    };
-    const handleDeleteAnimalClick = () => {
-        setShowForm('delete');
-    }
-
-    const handleCloseForm = () => {
-        setShowForm(null);
-    }
-    const handleFormSubmit = () => {
-        handleCloseForm();
-    }
+    const [createInstructorVisible, setCreateInstructorVisible] = useState(false);
+    const [editInstructorVisible, setEditInstructorVisible] = useState(false);
+    const [deleteInstructorVisible, setDeleteInstructorVisible] = useState(false);
 
     return (
-        <div align='center' style={{marginTop: '50px'}}>
-            {showForm === 'add' && <CreateAnimal onSubmit={handleFormSubmit} onCancel={handleCloseForm} />}
-            {showForm === 'edit' && <EditAnimal onSubmit={handleFormSubmit} onCancel={handleCloseForm} />}
-            {showForm === 'delete' && <DeleteAnimal onSubmit={handleFormSubmit} onCancel={handleCloseForm} />}
-
-            {showForm === null && (
-                <div>
-                    <button onClick={handleCreateInstructorClick}>Add animal</button>
-                    <button onClick={handleEditInstructorClick}>Edit animal</button>
-                    <button onClick={handleDeleteAnimalClick}>Delete animal</button>
-                </div>
-            )}
+        <div className="admin-container">
+            <button
+                className="admin-button"
+                onClick={() => setCreateInstructorVisible(true)}
+            >
+                Add Instructor
+            </button>
+            <button
+                className="admin-button"
+                onClick={() => setEditInstructorVisible(true)}
+            >
+                Edit Instructor
+            </button>
+            <button
+                className="admin-button"
+                onClick={() => setDeleteInstructorVisible(true)}
+            >
+                Delete Instructor
+            </button>
+            {createInstructorVisible && <CreateInstructor onHide={() => setCreateInstructorVisible(false)} />}
+            {editInstructorVisible && <EditInstructor onHide={() => setEditInstructorVisible(false)} />}
+            {deleteInstructorVisible && <DeleteInstructor onHide={() => setDeleteInstructorVisible(false)} />}
         </div>
-    )
-}
+    );
+};
 
-export default Admin
+export default Admin;
