@@ -1,0 +1,298 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color:#555555;
+}
+.navlink {
+    flex-grow: 1;
+    text-align: center;
+    text-decoration: none;
+    color: blanchedalmond;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 8px;
+    margin: 5px 6px 5px 5px;
+}
+.active {
+    color: white;
+}
+
+input {
+    display: block;
+    width: 30%;
+    padding: 5px 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+select {
+    display: block;
+    width: 30%;
+    padding: 5px 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+button {
+    width: 30%;
+    background-color: #555555;
+    border: none;
+    color: blanchedalmond;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #414040;
+    color: white;
+}
+
+
+.simpleLink {
+    text-align: center;
+    text-decoration: none;
+    color: #555555;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 6px 5px 5px;
+    padding: 15px 8px 8px;
+    cursor: pointer;
+}
+.simplelink .active {
+    color: #555555;
+}
+
+.listBox {
+    width: 100%;
+    background: white;
+    cursor: pointer;
+}
+.listBox:hover li {
+    color: #555555;
+    opacity: 0.2;
+}
+.listBox li {
+    text-align: center;
+    color: #555555;
+    list-style: none;
+    padding: 10px;
+    background: white;
+    transition: transform 0.5s;
+}
+.listBox li:hover {
+    color: blanchedalmond;
+    transform: scale(1.1);
+    z-index: 5;
+    background: #555555;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+}
+.listBox > .activeElement {
+    color: blanchedalmond;
+    background: #555555;
+}
+.listBox:hover > .activeElement {
+    color: blanchedalmond;
+    background: #555555;
+    opacity: 0.2;
+}
+.listBox > .activeElement:hover {
+    color: blanchedalmond;
+    background: #555555;
+    transform: scale(1.1);
+    z-index: 5;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+}
+
+.optionBar {
+    margin: 50px 50px 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.gridContainer {
+    padding: 50px 30px 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.gridItem {
+    text-align: center;
+}
+
+.flexContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.flexItem {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.flexItem + .flexItem {
+    margin-left: 4%;
+}
+.flexItem:nth-child(1) {
+    flex: 1;
+}
+.flexItem:nth-child(2) {
+    flex: 4;
+}
+
+
+.photoCard {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.6s;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+.photoCard img {
+    max-width: 250px;
+    max-height: 200px;
+    transition: transform 0.6s, filter 0.6s;
+}
+.photoCard figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    font-size: 300%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.6s;
+    padding: 10px;
+    box-sizing: border-box;
+    color: blanchedalmond;
+}
+.photoCard:hover {
+    transform: scale(1.15);
+}
+.photoCard:hover img {
+    transform: scale(1.15);
+    filter: brightness(70%);
+}
+.photoCard:hover figcaption {
+    opacity: 1;
+}
+
+.information {
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.information > img {
+    padding: 30px;
+    max-width: 500px;
+}
+.information > .table {
+    text-align: left;
+    color:#555555;
+    width: 100%;
+    font-size: x-large;
+    border-collapse: collapse;
+}
+.information > .table tr:nth-child(even) {
+    background-color: white;
+}
+.information > .table tr:nth-child(odd) {
+    background-color: blanchedalmond;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.modal-header {
+    display: flex;
+    justify-content: flex-end;
+}
+.close {
+    cursor: pointer;
+}
+.modal-body {
+    margin-bottom: 20px;
+}
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.pagination {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+}
+.page {
+    margin: 0 6px;
+    background: white;
+    max-width: max-content;
+    min-width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0 6px;
+}
+.pagination > .activePage {
+    background: blanchedalmond;
+    position: relative;
+}
+.instructor-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.instructor-item:hover {
+    transform: scale(1.05);
+}
+
+.instructor-image img {
+    width: 100%;
+    height: auto;
+}
+
+.instructor-info {
+    padding: 10px;
+}
+
+.instructor-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
